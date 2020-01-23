@@ -32,7 +32,7 @@ export const MovieProvider = props => {
         "x-rapidapi-key": "9625f60069msh7df0d5a3ae5a4ddp1d759ejsn0cce4042f495"
       }
     });
-    setDetails(result.data.drinks)
+    setDetails(result.data.drinks || [])
   };
 
 
@@ -45,7 +45,7 @@ export const MovieProvider = props => {
         "x-rapidapi-key": "9625f60069msh7df0d5a3ae5a4ddp1d759ejsn0cce4042f495"
       }
     });
-    setOptions(result.data.drinks)
+    setOptions(result.data.drinks || [])
   };
 
   const store = {

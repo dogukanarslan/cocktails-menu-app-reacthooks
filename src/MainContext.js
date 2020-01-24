@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const MainContext = createContext();
 
-export const MainComponent = ({children}) => {
+export const MainComponent = props => {
 
   const users = [
     {username:'admin', password: 'admin'},
@@ -79,7 +79,7 @@ export const MainComponent = ({children}) => {
 
   return(
     <MainContext.Provider value={store}>
-      {children}
+      {props.children}
     </MainContext.Provider>
   );
 };
@@ -87,6 +87,7 @@ export const MainComponent = ({children}) => {
 
 //Test starts here
 
+/*
 const initialState = {count: 0};
 
 const reducer = (state,action) => {
@@ -110,4 +111,5 @@ export const Counter = () =>{
     </>
   );
 }
+*/
 //Test ends here

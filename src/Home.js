@@ -1,9 +1,9 @@
 import React,{useContext} from 'react';
-import {MovieContext} from './MovieContext';
+import {MainContext} from './MainContext';
 import {Redirect} from 'react-router-dom';
 
 const Home = () => {
-  const providerValue = useContext(MovieContext)
+  const providerValue = useContext(MainContext)
 
   if(!providerValue.login){
     return <Redirect to="/login"/>

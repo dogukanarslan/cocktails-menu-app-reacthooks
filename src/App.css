@@ -1,8 +1,0 @@
-.login-button{
-  cursor: pointer;
-}
-
-.login-button:hover{
-  opacity: .6;
-  text-decoration: underline;
-}

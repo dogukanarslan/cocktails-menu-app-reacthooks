@@ -1,15 +1,24 @@
 import React,{useState,useEffect,createContext} from 'react';
 import axios from 'axios';
 
-export const MovieContext = createContext();
+export const MainContext = createContext();
 
-export const MovieProvider = props => {
+export const MainComponent = ({children}) => {
+
+  const users = [
+    {username:'admin', password: 'admin'},
+    {username: 'anotheruser',password:'123456'},
+    {username:'',password:''}
+  ];
 
   const [drinks, setDrinks] = useState([]);
   const [options, setOptions] = useState([]);
   const [filter, setFilter] = useState("");
   const [login, setLogin] = useState(false);
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState([{}]);
+  const [user, setUser] = useState(users)
+
+
 
   const fetchData = async (filter) => {
     const result = await axios({
@@ -58,7 +67,8 @@ export const MovieProvider = props => {
     setLogin,
     fetchItemDetails,
     details,
-    setDetails
+    setDetails,
+    user
   };
 
   useEffect(() => {
@@ -66,9 +76,38 @@ export const MovieProvider = props => {
     getOptions()
   },[]);
 
+
   return(
-    <MovieContext.Provider value={store}>
-      {props.children}
-    </MovieContext.Provider>
+    <MainContext.Provider value={store}>
+      {children}
+    </MainContext.Provider>
   );
 };
+
+
+//Test starts here
+
+const initialState = {count: 0};
+
+const reducer = (state,action) => {
+  switch(action.type){
+    case 'increment':
+      return {count: state.count + 1};
+    case 'decrement':
+      return {count: state.count -1};
+    default:
+      throw new Error();
+  }
+}
+
+export const Counter = () =>{
+  const [state, dispatch] = React.useReducer(reducer,initialState);
+  return(
+    <>
+      Count: {state.count}
+      <button onClick={()=>dispatch({type: 'increment'})}>+</button>
+      <button onClick={()=>dispatch({type: 'decrement'})}>-</button>
+    </>
+  );
+}
+//Test ends here

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-const Movie = (props) => {
+const Drink = (props) => {
 
   return(
     <div className="col-md-4">
@@ -18,4 +17,4 @@ const Movie = (props) => {
   );
 }
 
-export default Movie;
+export default Drink;

@@ -1,13 +1,13 @@
 import React,{useContext} from 'react';
-import {MovieContext} from './MovieContext';
+import {MainContext} from './MainContext';
 
 const SearchBar = () => {
 
-  const providerValue = useContext(MovieContext)
+  const providerValue = useContext(MainContext)
 
   return(
     <div className="container">
-      <form>
+      <form onClick={e => e.preventDefault()}>
         <div className="row">
 
           <div className="col-md-4">
@@ -38,7 +38,7 @@ const SearchBar = () => {
 
         </div>
       </form>
-      <p className="lead">Total: {providerValue.drinks.length}</p>
+      <p className="lead">Total: {providerValue.drinks.filter(drink => drink.strDrink.indexOf(providerValue.filter) > -1).length}</p>
     </div>
 
   )

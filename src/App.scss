@@ -1,0 +1,22 @@
+.login-button{
+  cursor: pointer;
+  &:hover{
+    opacity: .6;
+    text-decoration: underline;
+  }
+}
+
+.Login{
+  position: relative;
+}
+
+.notification{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  position: absolute;
+  top:0;
+  right: 50%;
+  transform: translateX(50%);
+  color: red;
+  font-weight: bold;
+}

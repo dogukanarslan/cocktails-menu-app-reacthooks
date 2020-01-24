@@ -1,14 +1,14 @@
 import React, {useEffect,useContext} from 'react';
-import {MovieContext} from './MovieContext';
+import {MainContext,Counter} from './MainContext';
+import {Redirect} from 'react-router-dom';
 
 const DrinkDetails = (props) => {
-  const providerValue = useContext(MovieContext)
+  const providerValue = useContext(MainContext)
   useEffect(()=> {
     providerValue.fetchItemDetails(props.match.params.id)
   },[props.match.params.id,providerValue]);
-    if(providerValue.details[0] === undefined){
-      return <p>Loading</p>
-  } else{
+
+  if (providerValue.login){
     return(
         <div className="container">
           <div className="row">
@@ -23,10 +23,12 @@ const DrinkDetails = (props) => {
             </div>
           </div>
         </div>
-
-
     )
+  } else{
+    return <Redirect to="/" />
   }
+
+
 
 }
 

@@ -26,3 +26,5 @@ export default function App() {
 }
 //Comment
 //Comment2
+
+//Comment2onthesamefile

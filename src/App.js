@@ -24,8 +24,3 @@ export default function App() {
   </MainComponent>
   );
 }
-//Comment
-//Comment2
-//Test text...
-//Comment1onthesamefile
-//Comment2onthesamefile
